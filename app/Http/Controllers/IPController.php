@@ -11,10 +11,10 @@ class IPController extends Controller
      */
     public function index()
     {
-        $reponse = [
+        $response = [
             'ip' => Request::ip(),
             ];
-        return response($reponse);
+        return response($response);
     }
 
     /**
