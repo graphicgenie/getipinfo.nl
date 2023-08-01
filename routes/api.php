@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IPController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('ip', [\App\Http\Controllers\IPController::class, 'index']);
+Route::get('ip', [IPController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
