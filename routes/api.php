@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeoIPController;
 use App\Http\Controllers\IPController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('ip', [IPController::class, 'index']);
+Route::get('ip', IPController::class);
+Route::get('geoip/{ip?}', GeoIPController::class);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
