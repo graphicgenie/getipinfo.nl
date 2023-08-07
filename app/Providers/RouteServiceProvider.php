@@ -30,7 +30,7 @@ class RouteServiceProvider extends ServiceProvider
                 return Limit::perMinute(60)->by($request->user());
             }
 
-            return Limit::perMinute(60)->by($request->ip());
+            return Limit::perMinute(30)->by($request->ip());
         });
 
         RateLimiter::for('api', function (Request $request) {
