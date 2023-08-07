@@ -62,13 +62,12 @@ const props = defineProps({
                         >View all Plans</a
                     >
                     <a
-                        v-if="subscriptions[subscription.stripe_price].id !== 'tier-business'"
                         :href="route('stripe-basic')"
                         class="float-right inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
                     >
                         <span v-if="!has_subscription">Upgrade to Basic</span>
-                        <span v-if="subscriptions[subscription.stripe_price].id === 'tier-basic'">Upgrade to Standard</span>
-                        <span v-if="subscriptions[subscription.stripe_price].id === 'tier-standard'">Upgrade to Business</span>
+                        <span v-else-if="subscriptions[subscription.stripe_price].id === 'tier-basic'">Upgrade to Standard</span>
+                        <span v-else-if="subscriptions[subscription.stripe_price].id === 'tier-standard'">Upgrade to Business</span>
                     </a>
                     <span class="clearfix">&nbsp;</span>
                 </div>
