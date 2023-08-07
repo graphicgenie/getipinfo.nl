@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::get('ip', IPController::class)->middleware(['throttle:ips']);
+Route::middleware('throttle:ips')->get('ip', IPController::class);
 
 Route::middleware('auth:sanctum')->get('geoip/{ip?}', GeoIPController::class);
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
