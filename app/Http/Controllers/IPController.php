@@ -11,10 +11,10 @@ class IPController extends Controller
      */
     public function __invoke(Request $request)
     {
-        dump(Request::host());
         $response = [
             'ip' => Request::ip(),
-            'hostname' => gethostbyaddr(Request::ip())
+            'hostname' => gethostbyaddr(Request::ip()),
+            'origin' => Request::header('origin')
             ];
 
         return response($response);
